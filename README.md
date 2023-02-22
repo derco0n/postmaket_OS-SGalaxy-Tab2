@@ -32,8 +32,9 @@ There are two ways of doing this, ***using my prebuilt image file or doing every
 
 ## Before starting anything
 
-:warning: **If you use my prebuilt image file, mind that you won't have official PostmarketOS support to ask for issues. The easier way is downloading my prebuilt image file, but the recommended way is building everything from scratch.** :warning:
+:warning: **If you use my prebuilt image file, mind that you won't have official PostmarketOS support to ask for issues. The easier way is downloading my prebuilt image file, but the recommended way is [building everything from scratch](#doing-everything-from-scratch).** 
 
+:warning: 
 ## Using my prebuilt image file (flashes on /system) (NOTICE: 5.17.x flashes on /sdcard due to space issues, so backup before continuing)
 
 **Mainline images (IMPORTANT! THEY DO NOT WORK ON 10-INCH SAMSUNG GALAXY TAB 2 DEVICE, AND READ NOTES, INCLUDED IN THE LINK)**: Download from here: https://sourceforge.net/projects/sgalaxy-tab2-linux-images/files/postmarketOS/mainline/ 
@@ -62,12 +63,21 @@ OR
 |----------|---------|
 | **Password** | **1234** |
 
-##  Doing everything from scratch
+## Doing everything from scratch
 
 Follow the official guide (you may need to search for additional information): 
 
+### Official documentation
 * Mainline: https://wiki.postmarketos.org/wiki/Samsung_Galaxy_Tab_2_7.0%22_(samsung-espresso3g).
 * Downstream: https://wiki.postmarketos.org/wiki/Samsung_Galaxy_Tab_2_10.1_(3G_and_Wifi)_(samsung-espresso10).
+
+#### steps to perform
+- Install [pmbootstrap](https://wiki.postmarketos.org/wiki/Pmbootstrap)
+- You need the non-free [pvrports](#pvrports)-BLOBS to support the GPU.
+- Import the [the repo](https://wiki.postmarketos.org/wiki/Pmbootstrap)
+- Stick to the recommend version of postmarketOS and select the [additional packages](https://wiki.postmarketos.org/wiki/Pmbootstrap) during ```pmbootstrap init``` and configure your target device.
+- Build your own PostmarketOS using e.g. ```pmbootstrap install --android-recovery-zip```
+- copy the built-zip from ```chroot_buildroot_armv7/var/lib/postmarketos-android-recovery-installer/``` to your device (either using sdcard or by using ```adb push``` -command)
 
 ## Pvrports
 
